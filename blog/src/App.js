@@ -17,7 +17,9 @@ function App() {
   let [title ,setTitle] = useState(['리액트 학습', '울산 맛집', '겨울코드추천']);
   let[likeCnt, setLikeCnt] = useState([0, 0, 0]);
   let[isShow, setIsShow] = useState(false);
-
+  
+  //input 태그에 입력한 값을 저장하고 있는 state 변수
+  let [newTitle, setNewTitle] = useState('')
 
   
   const changetitle = '남자옷추천';
@@ -44,13 +46,26 @@ function App() {
       {
         title.map((e, i) => {
           return (
-            <List key={i} title={e} setIsShow={setIsShow} likeCnt={likeCnt} idx={i} setLikeCnt={setLikeCnt}/>
+            <List setTitle={setTitle} key={i} title={title} setIsShow={setIsShow} likeCnt={likeCnt} idx={i} setLikeCnt={setLikeCnt}/>
           );
           
           
         })
       }
       
+      <div>
+        <input type='text' onChange={(e) => {
+          // input 태그에 입력한 값
+          setNewTitle(e.target.value)
+        }}/>
+        <input type='button' value={'저장'} onClick={(e) => {
+          let copyTitle = [...title]
+          copyTitle.unshift(newTitle)
+          setTitle(copyTitle)
+        }}/>
+      </div>
+      
+
       {
         isShow ? <Detail/> : ''
       }
@@ -66,13 +81,22 @@ function List(props){
     <div className='list'>
     <h4><span onClick={() => {
       props.setIsShow(true)
-    }}>{props.title}</span><span onClick={() => {
+    }}>{props.title[props.idx]}</span>
+    
+    {/* <span onClick={() => {
       let copyLikeCnt = [...props.likeCnt];
       copyLikeCnt[props.idx]++;
       props.setLikeCnt(copyLikeCnt);
-    }}>👍좋슈</span>{props.likeCnt[props.idx]}</h4>
+    }}>👍개추</span>{props.likeCnt[props.idx]} */}
+    </h4>
     <p>2월 19일 작성</p>
+    <button type='button' value={'삭제'} onClick={(e) => {
+      let copyTitle = [...props.title]
+      copyTitle.splice(props.idx,1)
+      props.setTitle(copyTitle)
+    }}/>
   </div>
+  
   );
 }
 
@@ -86,6 +110,8 @@ function Detail(){
       </div>
   );
 }
+
+
 
 
 export default App;
