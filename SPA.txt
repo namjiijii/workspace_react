@@ -1,0 +1,27 @@
+http://naver.me/GxR0StRQ
+
+
+
+SPA(Single page Apllication)
+react : 프론트엔드 프레임워크
+
+html + css + javascript
+
+
+
+리액트 개발 세팅
+- node.js(javascript 확장버전)
+- node.js 설치하면 npm,npx라는 명령어를 사용할 수 있음
+- 리액트 프로젝트를 생성할 폴더에서
+  터미널을 연 후 npm install -g create-react-app 실행
+  위 명령어는 create-react-app 이라는 명령어를 pc에 설치
+  pc에 한 번만 실행
+- 리액트 프로젝트 생성
+  터미널에 npx create-react-app 프로젝트명 명령어를 실행
+- 생성한 프로젝트를 실행할 때는 터미널에 npm start 명령어를 실행
+- 프로젝트 실행 종료를 위해서는 터미널에 ctrl + c 키를 입력한다
+
+
+
+
+- javascript는 웹 페이지에서 사용할 수 있도록 만들어진 언어
